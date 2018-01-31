@@ -1,0 +1,15 @@
+# default: on
+# description: postgrescheck
+service postgrescheck
+{
+        flags           = REUSE
+        socket_type     = stream
+        port            = 9201
+        wait            = no
+        user            = root
+        server          = /usr/local/sbin/postgrescheck
+        log_on_failure  += USERID
+        disable         = no
+        only_from       = 0.0.0.0/0
+        per_source      = UNLIMITED
+}
